@@ -1,0 +1,18 @@
+def classify(m):
+    m = m.lower()
+    if any(x in m for x in ["hello", "hi"]):
+        return "Greeting"
+    elif "?" in m:
+        return "Question"
+    elif "please" in m or "help" in m:
+        return "Request"
+    elif any(x in m for x in ["yes", "okay"]):
+        return "Confirmation"
+    elif any(x in m for x in ["problem", "bad"]):
+        return "Complaint"
+    return "Unknown"
+
+n = int(input("Number of messages: "))
+for i in range(n):
+    m = input("Enter message: ")
+    print("Category:", classify(m))
