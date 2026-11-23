@@ -1,0 +1,20 @@
+
+from collections import Counter
+
+text = input("Enter corpus: ").lower()
+words = text.split()
+
+bigrams = list(zip(words, words[1:]))
+freq = Counter(bigrams)
+
+print("Bigram Table:")
+for b, f in freq.items():
+    print(b, ":", f)
+
+start = input("Enter starting word: ").lower()
+next_words = [b[1] for b in bigrams if b[0] == start]
+
+print("Predicted Words:", next_words)
+
+if next_words:
+    print("Generated Text:", start, next_words[0])
