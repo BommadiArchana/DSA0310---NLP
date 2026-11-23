@@ -1,0 +1,17 @@
+s = ["he", "she", "it"]
+p = ["they", "we"]
+sv = ["is", "has", "plays"]
+pv = ["are", "have", "play"]
+
+words = input("Enter sentence: ").lower().split()
+
+sub = next((w for w in words if w in s+p), None)
+verb = next((w for w in words if w in sv+pv), None)
+
+if sub and verb:
+    a = "S" if sub in s else "P"
+    b = "S" if verb in sv else "P"
+    print("Subject:", sub, "Verb:", verb)
+    print("Correct" if a == b else "Agreement Error")
+else:
+    print("Subject or verb not found")
